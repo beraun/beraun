@@ -1,36 +1,88 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jorge Beraun – Automatización & Programación</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef0f2">
+  <meta name="description" content="Jorge Beraun. Developer and technologist with 20+ years of experience. AI Engineering in training, Data and Automation.">
+  <title>Jorge Beraun — A continuing curiosity</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23191b1e'/%3E%3Cpath d='M9 9v11q0 5 7 3V9' fill='none' stroke='%23eef0f2' stroke-width='3'/%3E%3Cpath d='M23 20v5' stroke='%23e3a126' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>Jorge Beraun</h1>
-    <p>Programador & Consultor en Automatización</p>
+  <a class="skip-link" href="#profile" data-copy="skip">Skip to profile</a>
+  <header class="header">
+    <a class="identity" href="#top" aria-label="Jorge Beraun — Home">JORGE BERAUN<span class="identity-dot" aria-hidden="true">.</span></a>
+    <div class="language" role="group" aria-label="Language / Idioma">
+      <button type="button" lang="en" aria-pressed="true" data-language="en">EN</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" lang="es" aria-pressed="false" data-language="es">ES</button>
+    </div>
   </header>
-
-  <main>
-    <section class="presentacion">
-      <h2>Hola, soy Jorge</h2>
-      <p>
-        Ayudo a empresas y profesionales a <strong>automatizar procesos</strong> y mejorar su flujo de trabajo usando tecnología.
-      </p>
-      <p>
-        Si tienes tareas repetitivas, correos que podrían enviarse solos o sistemas que se pueden conectar... puedo ayudarte.
-      </p>
+  <main id="top">
+    <section class="opening" aria-labelledby="hello">
+      <div class="opening-top"><span class="edition" aria-hidden="true">01 — ∞</span></div>
+      <h1 id="hello" aria-label="HELLO, WORLD."><span aria-hidden="true">HELLO,</span><span aria-hidden="true">WORLD<span class="period">.</span></span></h1>
+      <div class="opening-bottom">
+        <a class="scroll-cue" href="#evolution"><span data-copy="scroll">Follow the curiosity</span><span class="down-arrow" aria-hidden="true">↓</span></a>
+      </div>
+      <div class="opening-rule" aria-hidden="true"></div>
     </section>
 
-    <section class="contacto">
-      <h2>¿Hablamos?</h2>
-      <p>📬 Escríbeme: <a href="mailto:jorge@beraun.org">jorge@beraun.org</a></p>
+    <section class="journey" id="evolution" aria-labelledby="journey-title">
+      <div class="journey-stage">
+        <div class="stage-heading"><h2 class="eyebrow" id="journey-title" data-copy="layers">LAYERS, NOT REPLACEMENTS.</h2><span class="present-label" data-copy="present">A CONTINUING EVOLUTION</span></div>
+        <div class="workspace">
+          <div class="chapter">
+            <p class="chapter-index" aria-hidden="true"><span id="chapter-number">2002</span></p>
+            <p class="chapter-name" id="chapter-name" aria-hidden="true">SYSTEMS</p>
+            <p class="chapter-copy" data-copy="build">Everything learned.<br>Nothing left behind.</p>
+            <div class="layer-stack" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <figure class="monitor">
+            <div class="screen-top" aria-hidden="true"><span>curiosity.js</span><span class="screen-mode" data-copy="codeLabel">AN ONGOING PRACTICE</span></div>
+            <div class="code-window" aria-hidden="true">
+              <div class="line-numbers">01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11</div>
+              <pre><code><span class="comment">// HELLO, WORLD.</span>
+<span class="keyword">const</span> curiosity = <span class="literal">true</span>;
+
+<span class="keyword">const</span> foundations = [
+  <span class="string">'systems'</span>, <span class="string">'code'</span>,
+  <span class="string">'web'</span>, <span class="string">'data'</span>,
+  <span class="string">'automation'</span>
+];
+
+<span id="written-code">create({ foundations, curiosity,
+  collaborator: 'AI' });</span><span class="caret"></span></code></pre>
+            </div>
+            <figcaption class="screen-caption"><span class="code-status" data-copy="screenIdle">Built through curiosity.</span><span class="ai-badge" aria-hidden="true">+ AI</span></figcaption>
+            <p class="sr-only" data-copy="screenDescription">At the present, AI connects the accumulated layers and the code begins writing itself. Illustrative code.</p>
+          </figure>
+        </div>
+        <div class="chronology"><ol class="timeline" aria-label="Technological journey from 2002 to the present">
+          <li class="reached"><span class="node" aria-hidden="true"></span><time datetime="2002">2002</time><span>SYSTEMS</span></li>
+          <li><span class="node" aria-hidden="true"></span><time datetime="2005">2005</time><span>CODE</span></li>
+          <li><span class="node" aria-hidden="true"></span><time datetime="2010">2010</time><span>DATA</span></li>
+          <li><span class="node" aria-hidden="true"></span><time datetime="2020">2020</time><span>AUTOMATION</span></li>
+          <li class="ai-node"><span class="node" aria-hidden="true"></span><span class="milestone-date" data-copy="today">PRESENT</span><span>AI</span></li>
+        </ol></div>
+        <p class="journey-note" data-copy="layerNote">A new layer. The same curiosity.</p>
+      </div>
+    </section>
+
+    <section class="reveal" aria-labelledby="premise">
+      <div class="reveal-content">
+      <p class="eyebrow" data-copy="continuation">THE NEXT CHAPTER</p>
+      <h2 id="premise"><span data-copy="premiseFirst">I've always created<br>with technology.</span><span class="premise-now" data-copy="premiseNow">Now, technology<br>creates with me.</span></h2>
+      <div class="curiosity"><span class="small-plus" aria-hidden="true">+</span><p data-copy="curiosity">A curiosity that hasn't changed.</p></div>
+      </div>
+    </section>
+    <section class="profile" id="profile" aria-label="Professional profile" tabindex="-1">
+      <div><p class="eyebrow">JORGE BERAUN</p><p class="profile-title" data-copy="profileTitle">Experience that evolves.</p></div>
+      <p class="profile-copy" data-copy="profile">Developer and technologist with <strong>20+ years of experience.</strong> Currently training in <strong>AI Engineering</strong>, with a focus on <strong>Data and Automation.</strong></p>
     </section>
   </main>
-
-  <footer>
-    <p>&copy; 2025 Jorge Beraun</p>
-  </footer>
 </body>
 </html>
+
