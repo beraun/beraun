@@ -192,3 +192,26 @@ html{scroll-padding-top:var(--header-height)}
   .about-learning{font-size:1rem;line-height:1.45}
   .about-portrait{max-height:40svh}
 }
+/* Portrait composition only: let the supplied dark image extend through the stage. */
+@media(min-width:801px){
+  .about-portrait{position:absolute;right:-3%;top:50%;width:60%;max-width:none;height:auto;max-height:none;aspect-ratio:1374 / 1145;transform:translateY(-43%);pointer-events:none}
+  .about-portrait img{object-fit:cover;object-position:center}
+}
+@media(max-width:800px){
+  .about-portrait{width:124%;max-width:none;height:auto;max-height:none;aspect-ratio:1374 / 1145;justify-self:center}
+  .about-portrait img{object-fit:cover;object-position:center}
+}
+@media(min-width:801px){.about-portrait{grid-area:auto;mix-blend-mode:lighten}}
+/* Mobile closing composition fits the available viewport, below the fixed header. */
+@media(max-width:800px){
+  .contact{min-height:calc(100dvh - var(--header-height));padding:clamp(1rem,3dvh,2rem) 6%;padding-bottom:max(1rem,env(safe-area-inset-bottom));gap:clamp(1rem,3dvh,2rem);align-content:center}
+  .contact h2{font-size:clamp(1.35rem,min(6.2vw,3.6dvh),2rem);line-height:1.08;margin:.75rem 0 0}
+  .contact-next{margin-top:.65em}
+  .contact .wordmark{font-size:clamp(2rem,min(10vw,5dvh),3rem);margin:0 0 1rem}
+  .contact-invitation{font-size:.75rem;margin-bottom:.5rem}
+  .contact-links a{min-height:44px;align-items:center;padding:.65rem 0;gap:.5rem;font-size:.875rem}
+  .contact-method{font-size:.6875rem}
+}
+
+/* Experience runs on arrival; no extra scroll runway is needed for its dots. */
+.animated .chapter-scene{min-height:var(--chapter-height,100svh)}

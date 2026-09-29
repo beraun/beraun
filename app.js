@@ -133,6 +133,7 @@
   let language='en', pending=false, needsMeasure=true, geometry, chapterIndex=0, chapterAnimation;
   // Time-based runs survive a stopped scroll. Only leaving the scene upwards resets them.
   let codeStart=null, humanStart=null, photoStart=null, jokeStart=null;
+  const flowStarts=chapters.map(()=>null);
   let lastJoke='', lastHuman='', lastCode='';
   function setText(el,text,previous) { if(text!==previous) el.textContent=text; return text; }
   function colorGoogle(text) {
@@ -210,8 +211,17 @@
     stage.classList.toggle('story-complete',ai&&codeProgress===1);
     if(quiet||y>geometry.revealTop+geometry.viewport*.15)reveal.classList.add('second-visible');
     if(y<geometry.revealTop-geometry.viewport)reveal.classList.remove('second-visible');
-    // Actual process progress stays scroll-linked and reverses on upward scroll.
-    chapters.forEach((el,i)=>{const q=progressAt(geometry.chapters[i],y);el.style.setProperty('--flow',quiet?'1':segment(q,.16,.76).toFixed(4));});
+    // Arrival triggers one autonomous run; scrolling is only needed to read the next chapter.
+    let flowsRunning=false;
+    chapters.forEach((el,i)=>{
+      const scene=geometry.chapters[i];
+      const arrived=y>=scene.top-scene.pin-2;
+      if(y<scene.top-geometry.viewport)flowStarts[i]=null;
+      if(arrived&&flowStarts[i]===null)flowStarts[i]=now;
+      const flow=quiet?1:flowStarts[i]===null?0:clamp((now-flowStarts[i])/2200);
+      el.style.setProperty('--flow',flow.toFixed(4));
+      if(flowStarts[i]!==null&&flow<1)flowsRunning=true;
+    });
     const ap=quiet?1:progressAt(geometry.about,y);
     if(!quiet&&y<geometry.about.top-geometry.viewport*.5){humanStart=photoStart=jokeStart=null;}
     if((quiet||ap>=.04)&&humanStart===null)humanStart=now;
@@ -226,7 +236,7 @@
     colorGoogle(copy[language].joke.slice(0,Math.floor(jp*copy[language].joke.length)));
     aboutStage.classList.toggle('joke-visible',jokeStart!==null||quiet);
     if(quiet){reveal.classList.add('is-visible');contact.classList.add('is-visible');chapterAnimation?.cancel();}
-    const running=!quiet&&((ai&&codeProgress<1)||(humanStart!==null&&hp<1)||(photoStart!==null&&!photoDone)||(jokeStart!==null&&jp<1));
+    const running=!quiet&&(flowsRunning||(ai&&codeProgress<1)||(humanStart!==null&&hp<1)||(photoStart!==null&&!photoDone)||(jokeStart!==null&&jp<1));
     if(running)schedule();
   }
   function schedule(){if(!pending){pending=true;requestAnimationFrame(render);}}
