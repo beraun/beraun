@@ -8,19 +8,30 @@
   <title>Jorge Beraun — A continuing curiosity</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23191b1e'/%3E%3Cpath d='M9 9v11q0 5 7 3V9' fill='none' stroke='%23eef0f2' stroke-width='3'/%3E%3Cpath d='M23 20v5' stroke='%23e3a126' stroke-width='4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="refinements.css">
   <script src="app.js" defer></script>
 </head>
 <body>
+  <div class="viewport-metric" aria-hidden="true"></div>
   <a class="skip-link" href="#profile" data-copy="skip">Skip to profile</a>
   <header class="header">
     <a class="identity" href="#top" aria-label="Jorge Beraun — Home">JORGE BERAUN<span class="identity-dot" aria-hidden="true">.</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="header-panel" data-copy="menuLabel">MENU</button>
+    <div class="header-panel" id="header-panel">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#top" data-section="top" aria-current="location" data-copy="navHome">HOME</a>
+      <a href="#profile" data-section="profile" data-copy="navExperience">EXPERIENCE</a>
+      <a href="#about" data-section="about" data-copy="navAbout">ABOUT</a>
+      <a href="#contact" data-section="contact" data-copy="navContact">CONTACT</a>
+    </nav>
     <div class="language" role="group" aria-label="Language / Idioma">
       <button type="button" lang="en" aria-pressed="true" data-language="en">EN</button>
       <span aria-hidden="true">/</span>
       <button type="button" lang="es" aria-pressed="false" data-language="es">ES</button>
     </div>
+    </div>
   </header>
-  <main id="top">
+  <main id="top" tabindex="-1">
     <section class="opening" aria-labelledby="hello">
       <div class="opening-top"><span class="edition" aria-hidden="true">01 — ∞</span></div>
       <h1 id="hello" aria-label="HELLO, WORLD."><span aria-hidden="true">HELLO,</span><span aria-hidden="true">WORLD<span class="period">.</span></span></h1>
@@ -35,10 +46,9 @@
         <div class="stage-heading"><h2 class="eyebrow" id="journey-title" data-copy="layers">LAYERS, NOT REPLACEMENTS.</h2><span class="present-label" data-copy="present">A CONTINUING EVOLUTION</span></div>
         <div class="workspace">
           <div class="chapter">
-            <p class="chapter-index" aria-hidden="true"><span id="chapter-number">2002</span></p>
-            <p class="chapter-name" id="chapter-name" aria-hidden="true">SYSTEMS</p>
+            <p class="chapter-name typing-cursor" id="chapter-name" aria-hidden="true">SYSTEMS</p>
             <p class="chapter-copy" data-copy="build">Everything learned.<br>Nothing left behind.</p>
-            <div class="layer-stack" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="layer-stack" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
           <figure class="monitor">
             <div class="screen-top" aria-hidden="true"><span>curiosity.js</span><span class="screen-mode" data-copy="codeLabel">AN ONGOING PRACTICE</span></div>
@@ -53,19 +63,20 @@
   <span class="string">'automation'</span>
 ];
 
-<span id="written-code">create({ foundations, curiosity,
-  collaborator: 'AI' });</span><span class="caret"></span></code></pre>
+<span class="code-addition"><span id="written-code">create({ foundations, curiosity,
+  collaborator: 'AI' });</span><span class="caret"></span></span></code></pre>
             </div>
             <figcaption class="screen-caption"><span class="code-status" data-copy="screenIdle">Built through curiosity.</span><span class="ai-badge" aria-hidden="true">+ AI</span></figcaption>
             <p class="sr-only" data-copy="screenDescription">At the present, AI connects the accumulated layers and the code begins writing itself. Illustrative code.</p>
           </figure>
         </div>
-        <div class="chronology"><ol class="timeline" aria-label="Technological journey from 2002 to the present">
-          <li class="reached"><span class="node" aria-hidden="true"></span><time datetime="2002">2002</time><span>SYSTEMS</span></li>
-          <li><span class="node" aria-hidden="true"></span><time datetime="2005">2005</time><span>CODE</span></li>
-          <li><span class="node" aria-hidden="true"></span><time datetime="2010">2010</time><span>DATA</span></li>
-          <li><span class="node" aria-hidden="true"></span><time datetime="2020">2020</time><span>AUTOMATION</span></li>
-          <li class="ai-node"><span class="node" aria-hidden="true"></span><span class="milestone-date" data-copy="today">PRESENT</span><span>AI</span></li>
+        <div class="chronology"><ol class="timeline" aria-label="Accumulated technological layers">
+          <li><span class="node" aria-hidden="true"></span><span>SYSTEMS</span></li>
+          <li><span class="node" aria-hidden="true"></span><span>CODE</span></li>
+          <li><span class="node" aria-hidden="true"></span><span>WEB</span></li>
+          <li><span class="node" aria-hidden="true"></span><span>DATA</span></li>
+          <li><span class="node" aria-hidden="true"></span><span>AUTOMATION</span></li>
+          <li class="ai-node"><span class="node" aria-hidden="true"></span><span>AI</span></li>
         </ol></div>
         <p class="journey-note" data-copy="layerNote">A new layer. The same curiosity.</p>
       </div>
@@ -78,9 +89,92 @@
       <div class="curiosity"><span class="small-plus" aria-hidden="true">+</span><p data-copy="curiosity">A curiosity that hasn't changed.</p></div>
       </div>
     </section>
-    <section class="profile" id="profile" aria-label="Professional profile" tabindex="-1">
-      <div><p class="eyebrow">JORGE BERAUN</p><p class="profile-title" data-copy="profileTitle">Experience that evolves.</p></div>
-      <p class="profile-copy" data-copy="profile">Developer and technologist with <strong>20+ years of experience.</strong> Currently training in <strong>AI Engineering</strong>, with a focus on <strong>Data and Automation.</strong></p>
+    <section class="experience" id="profile" aria-labelledby="experience-title" tabindex="-1">
+      <div class="experience-main">
+      <div class="experience-heading">
+        <h2 id="experience-title" data-copy="experienceTitle">Experience<br>that evolves.</h2>
+        <p class="experience-intro" data-copy="experienceIntro">More than two decades turning complex processes and information into systems people can use to decide and act.</p>
+      </div>
+      <div class="experience-chapters">
+        <div class="chapter-scene"><article class="experience-chapter" aria-labelledby="realtime-title">
+          <p class="eyebrow" data-copy="realtimeLabel">01 / REAL-TIME DATA</p>
+          <h3 id="realtime-title" data-copy="realtimeTitle">Data was there<br>from the beginning.</h3>
+          <p data-copy="realtimeBody">At Halliburton / Real Time Operations, I worked on systems carrying drilling-well information into Halliburton’s global infrastructure: WITS transmission, data reception and processing, logs, and monitoring.</p>
+          <p data-copy="realtimeOutcome">The purpose was practical: help people at the well, in Mexico and in Houston see operational information and make decisions from it.</p>
+          <figure class="flow-figure">
+            <ol class="system-flow three-stops"><li data-copy="field">FIELD</li><li data-copy="mexico">MEXICO</li><li>HOUSTON</li></ol>
+            <figcaption class="sr-only" data-copy="fieldFlow">Operational information shared between the field, Mexico and Houston.</figcaption>
+          </figure>
+        </article></div>
+        <div class="chapter-scene"><article class="experience-chapter" aria-labelledby="public-title">
+          <p class="eyebrow" data-copy="publicLabel">02 / PUBLIC SYSTEMS</p>
+          <h3 id="public-title" data-copy="publicTitle">Complex processes.<br>Thousands of people.<br>One system.</h3>
+          <p data-copy="publicBody">I led the design and delivery of technology for public processes: structured emergency-call handling, educational staffing across more than 30,000 teachers, and the digitization of civil records.</p>
+          <p data-copy="publicOutcome">The work started before the software: understanding fragmented processes, defining requirements and coordinating implementation so information could become a decision—and a next step.</p>
+          <figure class="flow-figure">
+            <ol class="system-flow"><li data-copy="input">INPUT</li><li data-copy="process">PROCESS</li><li data-copy="decision">DECISION</li><li data-copy="action">ACTION</li></ol>
+            <figcaption class="sr-only" data-copy="publicFlow">Information enters a process, informs a decision and leads to action.</figcaption>
+          </figure>
+        </article></div>
+        <div class="chapter-scene"><article class="experience-chapter" aria-labelledby="business-title">
+          <p class="eyebrow" data-copy="businessLabel">03 / DIGITAL BUSINESS</p>
+          <h3 id="business-title" data-copy="businessTitle">Before platforms<br>made it easy.</h3>
+          <p data-copy="businessBody">I helped build and lead early e-commerce solutions for local businesses, when selling online meant putting together pieces that today’s platforms often provide out of the box.</p>
+          <p data-copy="businessOutcome">The store was only the beginning. Orders, payments and delivery had to work together as a business process.</p>
+          <figure class="flow-figure">
+            <ol class="system-flow"><li data-copy="store">STORE</li><li data-copy="order">ORDER</li><li data-copy="payment">PAYMENT</li><li data-copy="delivery">DELIVERY</li></ol>
+            <figcaption class="sr-only" data-copy="businessFlow">A store connects orders, payments and delivery.</figcaption>
+          </figure>
+        </article></div>
+        <div class="chapter-scene"><article class="experience-chapter" aria-labelledby="leadership-title">
+          <p class="eyebrow" data-copy="leadershipLabel">04 / TECHNICAL LEADERSHIP</p>
+          <h3 id="leadership-title" data-copy="leadershipTitle">From building systems<br>to leading them.</h3>
+          <p data-copy="leadershipBody">My role evolved from building parts of a system to understanding the whole problem: researching processes, designing solutions, defining requirements and coordinating the people who would build them.</p>
+          <p data-copy="leadershipOutcome">As a Technical Lead, I made technical decisions, supervised development and stayed involved where needed to take a solution into implementation.</p>
+          <figure class="flow-figure">
+            <ol class="system-flow"><li data-copy="understand">UNDERSTAND</li><li data-copy="design">DESIGN</li><li data-copy="buildStep">BUILD</li><li data-copy="lead">LEAD</li></ol>
+            <figcaption class="sr-only" data-copy="leadershipFlow">Understand the problem, design the solution, build it and lead its implementation.</figcaption>
+          </figure>
+        </article></div>
+      </div>
+      </div>
+      <div class="experience-close">
+        <p data-copy="experienceClose">The tools changed.<br>The way I think didn’t.</p>
+        <span class="eyebrow" data-copy="experiencePath">Systems → information → decisions → action.</span>
+      </div>
+    </section>
+
+    <section class="about" id="about" tabindex="-1" aria-labelledby="about-label">
+      <div class="about-stage">
+        <div class="about-heading">
+          <h2 class="eyebrow" id="about-label" data-copy="aboutLabel">ABOUT</h2>
+          <span class="about-slash" aria-hidden="true">/</span><p class="still-human"><span class="sr-only" data-copy="stillHuman">STILL HUMAN.</span><span id="human-typed" aria-hidden="true">STILL HUMAN.</span><span class="signature-cursor" aria-hidden="true">_</span></p>
+        </div>
+        <div class="about-intro">
+          <p class="about-thought" data-copy="aboutThought">After all these years,<br>technology still<br>makes me curious.</p>
+          <p class="about-learning"><span data-copy="aboutLearning">I'm still learning.<br>Still building.</span><span class="human-cursor" aria-hidden="true"> ▉</span></p>
+        </div>
+        <figure class="about-portrait">
+          <img src="assets/jorge-about-v3.webp" srcset="assets/jorge-about-v3-800.webp 800w, assets/jorge-about-v3.webp 1374w" sizes="(max-width: 800px) 100vw, 62vw" width="1374" height="1145" loading="lazy" decoding="async" alt="Jorge Beraun, wearing a black shirt, against a dark background.">
+        </figure>
+        <p class="about-joke"><span class="sr-only" data-copy="joke">// and yes, I still Google things.</span><span id="joke-typed" aria-hidden="true">// and yes, I still Google things.</span><span class="joke-cursor" aria-hidden="true">_</span></p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" tabindex="-1" aria-labelledby="contact-title">
+      <div class="contact-narrative">
+        <p class="eyebrow" data-copy="contactLabel">CONTACT</p>
+        <h2 id="contact-title"><span data-copy="contactStory">CURIOSITY BUILT<br>EVERYTHING YOU’VE<br>SEEN HERE.</span><span class="contact-next" data-copy="contactNext">LET’S BUILD<br>WHAT’S NEXT.</span></h2>
+      </div>
+      <div class="contact-identity">
+        <p class="wordmark" aria-label="Jorge Beraun">JORGE<br>BERAUN<span class="signature-cursor" aria-hidden="true">_</span></p>
+        <p class="contact-invitation" data-copy="contactInvitation">START A CONVERSATION.</p>
+        <nav class="contact-links" aria-label="Contact methods">
+          <a href="mailto:jorge@beraun.org"><span class="contact-method">01 / EMAIL</span><span>jorge@beraun.org ↗</span></a>
+          <a href="https://www.linkedin.com/in/jorge-beraun/"><span class="contact-method">02 / LINKEDIN</span><span>Jorge Beraun ↗</span></a>
+          <a href="https://github.com/beraun"><span class="contact-method">03 / GITHUB</span><span>beraun ↗</span></a>
+        </nav>
+      </div>
     </section>
   </main>
 </body>

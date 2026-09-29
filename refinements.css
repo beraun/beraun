@@ -1,0 +1,194 @@
+/* V2 refinement: scene boundaries and a deliberate, self-completing choreography. */
+.chronology .timeline{grid-template-columns:repeat(6,minmax(0,1fr))}
+.animated .journey{min-height:calc(var(--journey-height,100svh) + 300svh)}
+.animated .timeline .ai-node:not(.reached){opacity:1}
+.timeline li{min-width:0}.timeline li:last-child{align-items:flex-end}
+.timeline:after{max-width:100%}
+.animated .ai-active .monitor{border-color:var(--bright)}
+.ai-active .layer-stack i.on{transition:background-color .6s;background:var(--amber)}
+
+/* The sticky heading belongs only to the chapter group, not to its epilogue. */
+.experience{display:block;padding:0 6%}
+.experience-main{padding-top:4rem;min-width:0}
+.experience-heading{position:relative;top:auto;align-self:start}
+.experience-chapters{margin-top:3rem;min-width:0}
+.chapter-scene{position:relative;min-width:0}
+.experience-chapter{min-height:100svh;padding:3rem 0;display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
+.experience-chapter:first-child{padding-top:3rem;border-top:1px solid var(--line)}
+.animated .chapter-scene{min-height:calc(var(--chapter-height,100svh) + 110svh)}
+.animated .experience-chapter{position:sticky;top:var(--chapter-pin,0px)}
+.experience-close{position:relative;min-height:85svh;margin:0;padding:5rem 0;display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
+.experience-close>p{max-width:55rem}
+
+/* Human color interrupts the technical palette. The image keeps its original pixels. */
+.about{background:var(--ink);color:var(--paper);border:0;isolation:isolate}
+.about-stage{padding:2.5rem 6%;grid-template-areas:'heading' 'intro' 'portrait' 'joke';gap:1.8rem;align-content:center;overflow:clip}
+.about-heading{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;position:relative;z-index:2}
+.about-heading h2{margin:0;color:#b5bcc4}
+.about-slash{font:1rem Consolas,'Courier New',monospace;color:#b5bcc4}
+.still-human{position:relative;font-size:clamp(2rem,7vw,3.5rem);min-height:1.1em;line-height:1.1;letter-spacing:-.045em;font-weight:650;flex-basis:100%;margin:0}
+#human-typed{white-space:pre-wrap}
+.signature-cursor{color:var(--amber);font-family:Consolas,'Courier New',monospace;animation:chapter-cursor 1.2s step-end infinite}
+.about .signature-cursor,.about .human-cursor,.about .joke-cursor{color:var(--bright)}
+.about-intro{position:relative;z-index:2}
+.about-thought{font-size:clamp(1.2rem,4.3vw,1.7rem);line-height:1.3;margin:0 0 1.25rem}
+.about-learning{color:#b5bcc4}
+.about-portrait{width:calc(100% + 8%);max-width:none;justify-self:center;aspect-ratio:1374 / 1145;overflow:visible;margin:0}
+.about-portrait img{object-fit:contain;mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 79%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 7%,#000 79%,transparent 100%)}
+.about-joke{font-size:.9375rem;min-height:3.2em;position:relative;z-index:2;align-self:auto;color:var(--paper)}
+.animated .about{min-height:calc(var(--about-height,100svh) + 320svh)}
+.animated .still-human{opacity:1;transform:none}
+.animated .still-human>.signature-cursor{visibility:hidden}
+.animated .human-started .still-human>.signature-cursor{visibility:visible}
+.animated .about-portrait img{opacity:0;clip-path:none;transform:translateY(12px) scale(1.015);transition:opacity .65s ease,transform .65s ease}
+.animated .portrait-visible .about-portrait img{opacity:1;transform:none}
+.animated .about-joke .joke-cursor{opacity:0}
+.animated .joke-visible .about-joke .joke-cursor{opacity:1}
+
+/* A full final act; the name is the technical signature, not another terminal. */
+.contact{min-height:100svh;background:var(--paper);color:var(--ink);padding:5rem 6%;display:grid;grid-template-columns:minmax(0,1fr);gap:4rem;align-content:center;position:relative}
+.contact-narrative,.contact-identity{min-width:0}
+.contact .eyebrow{color:var(--muted)}
+.contact h2{font-size:clamp(2rem,7.8vw,3.7rem);font-weight:550;line-height:1.1;margin:2rem 0 0;letter-spacing:-.045em;overflow-wrap:normal}
+.contact h2>span{display:block}
+.contact-next{margin-top:1em}
+.wordmark{font:700 clamp(2.8rem,12vw,5rem)/1 Consolas,'Courier New',monospace;letter-spacing:-.07em;margin:0 0 2.5rem}
+.contact-invitation{font-size:.875rem;letter-spacing:.06em;margin:0 0 1rem}
+.contact-links{display:flex;flex-direction:column;gap:0;margin:0}
+.contact-links a{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;min-height:65px;border-top:1px solid var(--line);padding:1rem 0;text-decoration:none;font-size:1rem}
+.contact-links a>span:last-child{text-decoration:underline;text-underline-offset:.25em;overflow-wrap:anywhere}
+.contact-method{font-size:.75rem;color:var(--muted);letter-spacing:.035em}
+.contact a:hover,.contact a:active{color:var(--amber)}
+.contact a:focus-visible{outline-color:var(--amber)}
+.animated .contact-narrative,.animated .contact-identity{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+.animated .contact.is-visible .contact-narrative,.animated .contact.is-visible .contact-identity{opacity:1;transform:none}
+.animated .contact.is-visible .contact-identity{transition-delay:.12s}
+
+@media(min-width:801px){
+  .experience{padding:0 5.5%}
+  .experience-main{display:grid;grid-template-columns:1fr 1.45fr;column-gap:6%;padding-top:0}
+  .experience-heading{position:sticky;top:3rem;padding:3rem 0}
+  .experience-chapters{margin:0}
+  .about-stage{grid-template-columns:.85fr 1.4fr;grid-template-areas:'heading heading' 'intro portrait' 'joke joke';column-gap:3%;row-gap:1.5rem;padding:2.5rem 5.5%}
+  .about-heading{gap:1.2rem;flex-wrap:nowrap}
+  .still-human{flex-basis:auto;font-size:clamp(3rem,5.6vw,6.25rem)}
+  .about-thought{font-size:clamp(1.6rem,2.6vw,2.8rem)}
+  .about-portrait{width:110%;max-width:850px;justify-self:end;margin-right:-4%;}
+  .about-portrait img{mask-image:linear-gradient(to right,transparent,#000 10%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 80%,transparent);mask-composite:intersect;-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 80%,transparent);-webkit-mask-composite:source-in}
+  .about-joke{font-size:1rem;min-height:1.6em}
+  .contact{grid-template-columns:1.1fr 1fr;gap:8%;padding:5rem 5.5%;align-items:center}
+  .contact h2{font-size:clamp(2rem,3.8vw,4.5rem)}
+  .wordmark{font-size:clamp(3rem,6.1vw,7rem)}
+}
+@media(max-width:800px){
+  .chronology .timeline li{grid-template-columns:12px minmax(0,1fr);min-height:30px;align-items:center}
+  .timeline li:last-child{align-items:center}
+  .about-stage{padding-bottom:3rem}
+}
+@media(min-width:801px) and (max-height:650px){.experience-heading{position:relative;top:auto}}
+@media(prefers-reduced-motion:reduce){
+  .animated .journey,.animated .about,.animated .chapter-scene{min-height:0;height:auto}
+  .animated .journey-stage,.animated .about-stage,.animated .experience-chapter,.experience-heading{position:relative;top:auto;min-height:0}
+  .experience-chapter{padding:3rem 0}
+  .animated .about-portrait img,.animated .contact-narrative,.animated .contact-identity{opacity:1;transform:none}
+  .animated .still-human>.signature-cursor{visibility:visible}
+  .animated .about-joke .joke-cursor{opacity:1}
+  .signature-cursor{animation:none}
+}
+/* Short phones keep the complete final composition readable without tiny type. */
+@media(max-width:800px) and (max-height:760px){
+  .about-stage{padding:1.25rem 6%;gap:1rem}
+  .about-thought{font-size:1.125rem;margin-bottom:.8rem}
+  .about-portrait{width:108%;height:34svh;aspect-ratio:auto}
+  .about-portrait img{object-fit:cover;object-position:50% 38%}
+  .about-joke{min-height:2.6em;font-size:.875rem}
+}
+/* The header is in document flow; anchor targets need no fixed-header offset. */
+html{scroll-padding-top:0}
+.contact h2{overflow-wrap:anywhere}
+@media(max-width:800px){
+  .wordmark{font-size:min(clamp(2.8rem,12vw,5rem),13vw)}
+  .still-human{font-size:min(clamp(2rem,7vw,3.5rem),9.5vw)}
+}
+@media(max-width:800px) and (max-height:760px){
+  .journey-stage,.animated .journey-stage{padding:1rem 0;gap:.7rem}
+  .code-window{line-height:1.45;padding:.6rem .8rem}
+  .code-addition{min-height:2.9em}
+  .screen-top{padding:.55rem .8rem}
+  .screen-caption{padding:.55rem .8rem}
+  .chronology .timeline li{min-height:28px}
+}
+/* V3: one discreet persistent header; its measured height defines reading space. */
+:root{--header-height:64px;--scene-height:calc(100svh - var(--header-height))}
+html{scroll-padding-top:var(--header-height)}
+.nav-ready body{padding-top:var(--header-height)}
+.header{height:64px;min-height:64px;background:rgba(17,19,20,.98);color:var(--paper);border-bottom:1px solid #ffffff0f;box-shadow:none;gap:2rem;z-index:30}
+.nav-ready .header{position:fixed;inset:0 0 auto}
+.header .identity{font:500 .8125rem/1.2 Arial,Helvetica,sans-serif;letter-spacing:.035em;white-space:nowrap;min-height:44px;display:flex;align-items:center}
+.header .identity-dot{display:none}
+.header-panel{display:flex;align-items:center;gap:2rem;margin-left:auto}
+.header-panel[hidden]{display:none!important}
+.site-nav{display:flex;align-items:center;gap:1.7rem}
+.site-nav a{position:relative;display:flex;align-items:center;min-height:44px;color:#b5bcc4;font-size:.6875rem;letter-spacing:.06em;text-decoration:none;white-space:nowrap}
+.site-nav a[aria-current]{color:var(--paper)}
+.site-nav a[aria-current]::after{content:'';position:absolute;bottom:6px;left:0;right:0;height:1px;background:var(--bright)}
+.header .language{font-size:.6875rem;gap:0}
+.header .language button{color:#b5bcc4;min-width:36px}
+.header .language button[aria-pressed=true]{color:var(--paper);text-decoration-color:var(--bright)}
+.header :focus-visible{outline:2px solid var(--bright);outline-offset:2px}
+.menu-toggle{display:none;color:var(--paper);background:none;border:0;font-size:.75rem;letter-spacing:.05em;min-width:56px;min-height:44px;padding:0;cursor:pointer}
+.skip-link{z-index:40}
+.opening{min-height:var(--scene-height)}
+.animated .journey-stage,.animated .about-stage,.experience-chapter,.animated .reveal-content{min-height:var(--scene-height)}
+.animated .reveal-content{top:var(--reveal-pin,var(--header-height))}
+.experience-heading{scroll-margin-top:var(--header-height)}
+@media(min-width:801px) and (min-height:651px){.experience-heading{top:calc(var(--header-height) + 1rem)}}
+@media(max-width:900px){
+  :root{--header-height:56px}
+  .header{height:56px;min-height:56px;padding:0 6%;gap:1rem}
+  .nav-ready .menu-toggle{display:block;margin-left:auto}
+  .header-panel{margin:0;gap:1rem}
+  .nav-ready .header-panel{position:absolute;top:100%;left:0;right:0;display:block;padding:1rem 6% 1.5rem;background:#111314;border-bottom:1px solid #ffffff0f;max-height:calc(100dvh - var(--header-height));overflow-y:auto}
+  .site-nav{flex-direction:column;align-items:stretch;gap:0}
+  .site-nav a{font-size:.8125rem;min-height:48px;width:max-content}
+  .site-nav a[aria-current]::after{bottom:8px}
+  .header .language{margin-top:.75rem;justify-content:flex-start}
+  .header .language button{min-width:44px}
+  html:not(.nav-ready) .header{height:auto;flex-wrap:wrap;padding-top:.5rem;padding-bottom:1rem}
+  html:not(.nav-ready) .header-panel{flex-basis:100%;flex-wrap:wrap}
+  html:not(.nav-ready) .site-nav{flex-direction:row;flex-wrap:wrap;gap:1rem}
+}
+/* The supplied dark portrait needs no feathered rectangle or facial treatment. */
+.about{background:#111314}
+.about-stage{padding-top:clamp(4rem,11svh,8rem);padding-bottom:2rem}
+.about-portrait img{mask-image:none;-webkit-mask-image:none;mix-blend-mode:lighten;filter:none;border-radius:0}
+.about-portrait{max-width:850px}
+@media(min-width:801px){
+  .about-stage{row-gap:1rem}
+  .about-portrait{width:100%;max-height:58svh;aspect-ratio:1374 / 1145;justify-self:end;margin-right:0}
+  .about-portrait img{object-fit:contain}
+}
+@media(max-width:800px){
+  .about-stage{padding-top:clamp(3rem,7svh,5rem);gap:1.2rem}
+}
+@media(max-width:800px) and (max-height:760px){
+  .about-stage{padding-top:2.5rem;padding-bottom:1rem;gap:.75rem}
+  .about-portrait{height:29svh;width:108%;aspect-ratio:auto}
+  .about-portrait img{object-fit:cover;object-position:50% 38%}
+}
+@media(prefers-reduced-motion:reduce){
+  .animated .journey-stage,.animated .about-stage,.animated .experience-chapter,.animated .reveal-content{position:relative;top:auto;min-height:0}
+}
+/* The sticky stage supplies the blending backdrop, keeping the supplied dark edges seamless. */
+.about-stage{background:#111314}
+@media(max-width:800px) and (max-height:760px){
+  .about-portrait{height:auto;max-height:calc(var(--scene-height) - 18rem);aspect-ratio:1374 / 1145}
+  .about-portrait img{object-fit:contain;object-position:center}
+}
+/* Landscape phones retain the headline; compact supporting copy and portrait height instead. */
+@media(min-width:801px) and (max-height:500px){
+  .about-stage{row-gap:.75rem;padding-top:3rem;padding-bottom:1rem}
+  .about-thought{font-size:1.125rem;line-height:1.3;margin-bottom:.75rem}
+  .about-learning{font-size:1rem;line-height:1.45}
+  .about-portrait{max-height:40svh}
+}
