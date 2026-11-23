@@ -2,10 +2,10 @@
 (() => {
   const copy = {
     en: {
-      graduation:'Systems Engineering graduate', today:'PRESENT', skip:'Skip to profile', role:'DEVELOPER & TECHNOLOGIST', intro:'20+ years creating with technology.<br>AI Engineering in training. Data. Automation.', scroll:'Follow the curiosity', layers:'LAYERS, NOT REPLACEMENTS.', present:'A CONTINUING EVOLUTION', build:'Everything learned.<br>Nothing left behind.', codeLabel:'AN ONGOING PRACTICE', screenIdle:'Built through curiosity.', screenActive:'The same foundations. Accelerated.', screenDescription:'At the present, AI connects the accumulated layers and the code begins writing itself. Illustrative code.', now:'NOW', layerNote:'A new layer. The same curiosity.', continuation:'THE NEXT CHAPTER', premiseFirst:"I've always created<br>with technology.", premiseNow:'Now, technology<br>creates with me.', curiosity:"A curiosity that hasn't changed.", profileTitle:'Experience that evolves.', profile:'Developer and technologist with <strong>20+ years of experience.</strong> Currently training in <strong>AI Engineering</strong>, with a focus on <strong>Data and Automation.</strong>', timeline:'Technological journey from 2002 to the present; accumulated layers', profileLabel:'Professional profile', title:'Jorge Beraun — A continuing curiosity'
+      graduation:'Systems Engineering graduate', today:'PRESENT', skip:'Skip to experience', role:'DEVELOPER & TECHNOLOGIST', intro:'20+ years creating with technology.<br>AI Engineering in training. Data. Automation.', scroll:'Follow the curiosity', layers:'LAYERS, NOT REPLACEMENTS.', present:'A CONTINUING EVOLUTION', build:'Everything learned.<br>Nothing left behind.', codeLabel:'AN ONGOING PRACTICE', screenIdle:'Built through curiosity.', screenActive:'The same foundations. Accelerated.', screenDescription:'At the present, AI connects the accumulated layers and the code begins writing itself. Illustrative code.', now:'NOW', layerNote:'A new layer. The same curiosity.', continuation:'THE NEXT CHAPTER', premiseFirst:"I've always created<br>with technology.", premiseNow:'Now, technology<br>creates with me.', curiosity:"A curiosity that hasn't changed.", profileTitle:'Experience that evolves.', profile:'Developer and technologist with <strong>20+ years of experience.</strong> Currently training in <strong>AI Engineering</strong>, with a focus on <strong>Data and Automation.</strong>', timeline:'Technological journey from 2002 to the present; accumulated layers', profileLabel:'Professional profile', title:'Jorge Beraun — A continuing curiosity'
     },
     es: {
-      graduation:'Graduado en Ingeniería en Sistemas', today:'ACTUALIDAD', skip:'Ir al perfil', role:'DESARROLLADOR Y TECNÓLOGO', intro:'Más de 20 años creando con tecnología.<br>AI Engineering en formación. Data. Automation.', scroll:'Sigue la curiosidad', layers:'CAPAS, NO REEMPLAZOS.', present:'UNA EVOLUCIÓN CONSTANTE', build:'Todo lo aprendido.<br>Nada queda atrás.', codeLabel:'UNA PRÁCTICA CONSTANTE', screenIdle:'Creado desde la curiosidad.', screenActive:'La misma base. Con más impulso.', screenDescription:'Al llegar al presente, la IA conecta las capas acumuladas y el código comienza a escribirse solo. Código ilustrativo.', now:'HOY', layerNote:'Una nueva capa. La misma curiosidad.', continuation:'EL SIGUIENTE CAPÍTULO', premiseFirst:'Siempre he creado<br>con tecnología.', premiseNow:'Ahora, la tecnología<br>crea conmigo.', curiosity:'Una curiosidad que sigue igual.', profileTitle:'Experiencia que evoluciona.', profile:'Desarrollador y tecnólogo con <strong>más de 20 años de experiencia.</strong> Actualmente en formación en <strong>AI Engineering</strong>, con foco en <strong>Data y Automation.</strong>', timeline:'Trayectoria tecnológica desde 2002 hasta la actualidad; capas acumuladas', profileLabel:'Perfil profesional', title:'Jorge Beraun — Una curiosidad constante'
+      graduation:'Graduado en Ingeniería en Sistemas', today:'ACTUALIDAD', skip:'Ir a la experiencia', role:'DESARROLLADOR Y TECNÓLOGO', intro:'Más de 20 años creando con tecnología.<br>AI Engineering en formación. Data. Automation.', scroll:'Sigue la curiosidad', layers:'CAPAS, NO REEMPLAZOS.', present:'UNA EVOLUCIÓN CONSTANTE', build:'Todo lo aprendido.<br>Nada queda atrás.', codeLabel:'UNA PRÁCTICA CONSTANTE', screenIdle:'Creado desde la curiosidad.', screenActive:'La misma base. Con más impulso.', screenDescription:'Al llegar al presente, la IA conecta las capas acumuladas y el código comienza a escribirse solo. Código ilustrativo.', now:'HOY', layerNote:'Una nueva capa. La misma curiosidad.', continuation:'EL SIGUIENTE CAPÍTULO', premiseFirst:'Siempre he creado<br>con tecnología.', premiseNow:'Ahora, la tecnología<br>crea conmigo.', curiosity:'Una curiosidad que sigue igual.', profileTitle:'Experiencia que evoluciona.', profile:'Desarrollador y tecnólogo con <strong>más de 20 años de experiencia.</strong> Actualmente en formación en <strong>AI Engineering</strong>, con foco en <strong>Data y Automation.</strong>', timeline:'Trayectoria tecnológica desde 2002 hasta la actualidad; capas acumuladas', profileLabel:'Perfil profesional', title:'Jorge Beraun — Una curiosidad constante'
     }
   };
   const sectionCopy = {
@@ -116,173 +116,418 @@
   Object.assign(copy.es, {timeline:'Capas tecnológicas acumuladas', contactStory:'LA CURIOSIDAD CREÓ<br>TODO LO QUE<br>HAS VISTO AQUÍ.', contactNext:'CONSTRUYAMOS<br>LO QUE SIGUE.', contactInvitation:'INICIEMOS UNA CONVERSACIÓN.', socialLabel:'Métodos de contacto'});
   Object.assign(copy.en,{navHome:'HOME',navExperience:'EXPERIENCE',navAbout:'ABOUT',navContact:'CONTACT',menuLabel:'MENU'});
   Object.assign(copy.es,{navHome:'INICIO',navExperience:'EXPERIENCIA',navAbout:'SOBRE MÍ',navContact:'CONTACTO',menuLabel:'MENÚ'});
+  Object.assign(copy.en, {finaleLabel:'FINALE'});
+  Object.assign(copy.es, {finaleLabel:'CIERRE'});
+
   const $ = selector => document.querySelector(selector);
   const root = document.documentElement;
-  const journey = $('.journey'), stage = $('.journey-stage'), about = $('.about'), aboutStage = $('.about-stage');
-  const chapter = $('#chapter-name'), written = $('#written-code'), human = $('#human-typed'), joke = $('#joke-typed');
-  const reveal = $('.reveal'), contact = $('.contact');
-  const chapters = [...document.querySelectorAll('.experience-chapter')];
-  const items = [...document.querySelectorAll('.timeline li')];
-  const layers = [...document.querySelectorAll('.layer-stack i')];
-  const names = ['SYSTEMS','CODE','WEB','DATA','AUTOMATION','AI'];
-  const fullCode = "create({ foundations, curiosity,\n  collaborator: 'AI' });";
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const clamp = n => Math.max(0,Math.min(1,n));
-  const segment = (n,a,b) => clamp((n-a)/(b-a));
-  const timing = {code:2400, human:1000, portrait:650, joke:1350};
-  let language='en', pending=false, needsMeasure=true, geometry, chapterIndex=0, chapterAnimation;
-  // Time-based runs survive a stopped scroll. Only leaving the scene upwards resets them.
-  let codeStart=null, humanStart=null, photoStart=null, jokeStart=null;
-  const flowStarts=chapters.map(()=>null);
-  let lastJoke='', lastHuman='', lastCode='';
-  function setText(el,text,previous) { if(text!==previous) el.textContent=text; return text; }
-  function colorGoogle(text) {
-    if (text===lastJoke) return;
-    lastJoke=text; joke.replaceChildren();
-    const start=text.indexOf('Google');
-    if(start<0){joke.textContent=text;return;}
-    joke.append(document.createTextNode(text.slice(0,start)));
-    const colors=['#4285f4','#ea4335','#fbbc05','#4285f4','#34a853','#ea4335'];
-    [...'Google'].forEach((letter,i)=>{const span=document.createElement('span');span.textContent=letter;span.style.color=colors[i];joke.append(span);});
-    joke.append(document.createTextNode(text.slice(start+6)));
+  const clamp = n => Math.max(0, Math.min(1, n));
+  let language = 'en';
+
+  /* ---------- Language ---------- */
+  function refreshDynamicCopy() {
+    // Texts the JS types or updates itself, outside data-copy.
+    const status = $('.code-status');
+    if (status) status.textContent = copy[language][aiActive ? 'screenActive' : 'screenIdle'];
+    if (aboutDone) {
+      human.textContent = copy[language].stillHuman;
+      colorGoogle(copy[language].joke);
+    }
   }
   function setLanguage(next) {
-    language=next; root.lang=next;
-    document.querySelectorAll('[data-copy]').forEach(el=>{if(copy[next][el.dataset.copy]!==undefined)el.innerHTML=copy[next][el.dataset.copy];});
-    document.querySelectorAll('[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===next)));
-    $('.timeline').setAttribute('aria-label',copy[next].timeline);
-    $('.identity').setAttribute('aria-label',next==='en'?'Jorge Beraun — Home':'Jorge Beraun — Inicio');
-    $('.about-portrait img').alt=copy[next].portraitAlt;
-    $('.contact-links').setAttribute('aria-label',copy[next].socialLabel);
-    document.title=copy[next].title;
-    $('.site-nav').setAttribute('aria-label',next==='en'?'Main navigation':'Navegación principal');
-    needsMeasure=true; schedule();
-  }
-  function bounds(el,inner,viewport,headerHeight) {
-    const height=inner.getBoundingClientRect().height;
-    return {top:el.getBoundingClientRect().top+scrollY,travel:Math.max(1,el.getBoundingClientRect().height-height),pin:Math.min(headerHeight,viewport-height)};
-  }
-  function measure() {
-    const viewport=$('.viewport-metric').getBoundingClientRect().height||innerHeight;
-    const headerHeight=header.getBoundingClientRect().height;
-    root.style.setProperty('--header-height',`${headerHeight}px`);
-    // Each sticky child is bounded by its own wrapper, never by the next scene.
-    const heights=chapters.map(el=>el.getBoundingClientRect().height);
-    chapters.forEach((el,i)=>{
-      el.parentElement.style.setProperty('--chapter-height',`${heights[i]}px`);
-      el.style.setProperty('--chapter-pin',`${Math.min(headerHeight,viewport-heights[i])}px`);
+    language = next;
+    root.lang = next;
+    document.querySelectorAll('[data-copy]').forEach(el => {
+      if (copy[next][el.dataset.copy] !== undefined) el.innerHTML = copy[next][el.dataset.copy];
     });
-    const aboutHeight=aboutStage.getBoundingClientRect().height;
-    about.style.setProperty('--about-height',`${aboutHeight}px`);
-    const journeyHeight=stage.getBoundingClientRect().height;
-    journey.style.setProperty('--journey-height',`${journeyHeight}px`);
-    geometry={viewport,headerHeight,journey:bounds(journey,stage,viewport,headerHeight),about:bounds(about,aboutStage,viewport,headerHeight),chapters:chapters.map(el=>bounds(el.parentElement,el,viewport,headerHeight)),revealTop:reveal.getBoundingClientRect().top+scrollY};
-    $('.reveal-content').style.setProperty('--reveal-pin',`${Math.min(headerHeight,viewport-$('.reveal-content').getBoundingClientRect().height)}px`);
-    geometry.sections=navLinks.map(link=>({id:link.dataset.section,top:document.getElementById(link.dataset.section).getBoundingClientRect().top+scrollY}));
-    stage.style.setProperty('--pin-top',`${geometry.journey.pin}px`);
-    aboutStage.style.setProperty('--about-pin-top',`${geometry.about.pin}px`);
-    needsMeasure=false;
+    document.querySelectorAll('[data-language]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.language === next)));
+    $('.timeline').setAttribute('aria-label', copy[next].timeline);
+    $('.identity').setAttribute('aria-label', next === 'en' ? 'Jorge Beraun — Home' : 'Jorge Beraun — Inicio');
+    $('.about-portrait img').alt = copy[next].portraitAlt;
+    $('.contact-links').setAttribute('aria-label', copy[next].socialLabel);
+    document.title = copy[next].title;
+    $('.site-nav').setAttribute('aria-label', next === 'en' ? 'Main navigation' : 'Navegación principal');
+    refreshDynamicCopy();
+    measureSections();
   }
-  const progressAt=(scene,y)=>clamp((y-scene.top+scene.pin)/scene.travel);
-  function render(now) {
-    pending=false;
-    if(needsMeasure)measure();
-    const y=scrollY, quiet=reduced.matches;
-    updateNavigation(y);
-    const p=quiet?1:progressAt(geometry.journey,y);
-    // Six layers occupy the first 60%; the remainder is native scroll hold for AI.
-    const index=quiet?5:Math.min(5,Math.floor(p/.12));
-    items.forEach((el,i)=>{el.classList.toggle('reached',i<=index);el.classList.toggle('current',i===index);});
-    layers.forEach((el,i)=>el.classList.toggle('on',i<=index));
-    stage.style.setProperty('--progress',index/5);
-    chapter.classList.toggle('typing-cursor',index<5);
-    if(chapterIndex!==index){
-      chapterIndex=index;chapter.textContent=names[index];
-      chapterAnimation?.cancel();
-      if(!quiet)chapterAnimation=chapter.animate([{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'none'}],{duration:520,easing:'ease-out'});
+
+  /* ---------- Starfield (level 3): twinkle + drift + shooting stars ---------- */
+  const canvas = $('#starfield');
+  const ctx = canvas ? canvas.getContext('2d') : null;
+  let stars = [], shooters = [], starWidth = 0, starHeight = 0, starRaf = null, nextShooter = Infinity;
+  function newStar(anywhere) {
+    return {
+      x: Math.random() * starWidth,
+      y: anywhere ? Math.random() * starHeight : -4,
+      r: Math.random() * 1.1 + .3,
+      phase: Math.random() * Math.PI * 2,
+      speed: .3 + Math.random() * .9,
+      drift: (Math.random() - .5) * .06,
+      fall: .02 + Math.random() * .05
+    };
+  }
+  function sizeStars() {
+    if (!ctx) return;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    starWidth = canvas.clientWidth;
+    starHeight = canvas.clientHeight;
+    canvas.width = Math.floor(starWidth * dpr);
+    canvas.height = Math.floor(starHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.min(190, Math.floor(starWidth * starHeight / 9000));
+    stars = Array.from({length: count}, () => newStar(true));
+  }
+  function drawStars(now) {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, starWidth, starHeight);
+    for (const s of stars) {
+      const tw = .35 + .65 * (.5 + .5 * Math.sin(now / 1000 * s.speed + s.phase));
+      ctx.globalAlpha = tw * .9;
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+      if (!reduced.matches) {
+        s.x += s.drift;
+        s.y += s.fall;
+        if (s.y > starHeight + 4) { Object.assign(s, newStar(false)); s.y = -4; }
+        if (s.x < -4) s.x = starWidth + 4;
+        if (s.x > starWidth + 4) s.x = -4;
+      }
     }
-    const ai=index===5;
-    stage.classList.toggle('ai-active',ai);
-    $('.code-status').textContent=copy[language][ai?'screenActive':'screenIdle'];
-    if(!ai){codeStart=null;}else if(codeStart===null){codeStart=now;}
-    const codeProgress=quiet?1:codeStart===null?0:clamp((now-codeStart-250)/timing.code);
-    lastCode=setText(written,fullCode.slice(0,Math.floor(codeProgress*fullCode.length)),lastCode);
-    stage.classList.toggle('ai-arrival',ai&&codeProgress<1);
-    stage.classList.toggle('story-complete',ai&&codeProgress===1);
-    if(quiet||y>geometry.revealTop+geometry.viewport*.15)reveal.classList.add('second-visible');
-    if(y<geometry.revealTop-geometry.viewport)reveal.classList.remove('second-visible');
-    // Arrival triggers one autonomous run; scrolling is only needed to read the next chapter.
-    let flowsRunning=false;
-    chapters.forEach((el,i)=>{
-      const scene=geometry.chapters[i];
-      const arrived=y>=scene.top-scene.pin-2;
-      if(y<scene.top-geometry.viewport)flowStarts[i]=null;
-      if(arrived&&flowStarts[i]===null)flowStarts[i]=now;
-      const flow=quiet?1:flowStarts[i]===null?0:clamp((now-flowStarts[i])/2200);
-      el.style.setProperty('--flow',flow.toFixed(4));
-      if(flowStarts[i]!==null&&flow<1)flowsRunning=true;
+    if (!reduced.matches && now >= nextShooter) {
+      shooters.push({
+        x: starWidth * (.15 + Math.random() * .7),
+        y: starHeight * Math.random() * .3,
+        vx: -(4 + Math.random() * 4),
+        vy: 2 + Math.random() * 2,
+        life: 1
+      });
+      nextShooter = now + 4000 + Math.random() * 5000;
+    }
+    shooters = shooters.filter(sh => sh.life > 0);
+    for (const sh of shooters) {
+      sh.x += sh.vx;
+      sh.y += sh.vy;
+      sh.life -= .02;
+      const tail = 12;
+      const grad = ctx.createLinearGradient(sh.x, sh.y, sh.x - sh.vx * tail, sh.y - sh.vy * tail);
+      grad.addColorStop(0, 'rgba(255,255,255,' + (.9 * sh.life).toFixed(3) + ')');
+      grad.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(sh.x, sh.y);
+      ctx.lineTo(sh.x - sh.vx * tail, sh.y - sh.vy * tail);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+  function starLoop(now) {
+    drawStars(now);
+    if (!document.hidden && !reduced.matches) starRaf = requestAnimationFrame(starLoop);
+    else starRaf = null;
+  }
+  function startStars() {
+    if (!ctx || starRaf !== null || reduced.matches) return;
+    nextShooter = performance.now() + 2500;
+    starRaf = requestAnimationFrame(starLoop);
+  }
+  function stopStars() {
+    if (starRaf !== null) { cancelAnimationFrame(starRaf); starRaf = null; }
+  }
+
+  /* ---------- Progress bar + scroll parallax ---------- */
+  const progressFill = $('#progress-fill');
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progressFill.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+      root.style.setProperty('--scroll-p', clamp(scrollY / innerHeight).toFixed(3));
+      updateNavigation();
     });
-    const ap=quiet?1:progressAt(geometry.about,y);
-    if(!quiet&&y<geometry.about.top-geometry.viewport*.5){humanStart=photoStart=jokeStart=null;}
-    if((quiet||ap>=.04)&&humanStart===null)humanStart=now;
-    const hp=quiet?1:humanStart===null?0:clamp((now-humanStart)/timing.human);
-    lastHuman=setText(human,copy[language].stillHuman.slice(0,Math.floor(hp*copy[language].stillHuman.length)),lastHuman);
-    aboutStage.classList.toggle('human-started',humanStart!==null||quiet);
-    if((quiet||(ap>=.28&&hp===1))&&photoStart===null)photoStart=now;
-    const photoDone=quiet||(photoStart!==null&&now-photoStart>=timing.portrait);
-    aboutStage.classList.toggle('portrait-visible',photoStart!==null||quiet);
-    if((quiet||(ap>=.50&&photoDone))&&jokeStart===null)jokeStart=now;
-    const jp=quiet?1:jokeStart===null?0:clamp((now-jokeStart)/timing.joke);
-    colorGoogle(copy[language].joke.slice(0,Math.floor(jp*copy[language].joke.length)));
-    aboutStage.classList.toggle('joke-visible',jokeStart!==null||quiet);
-    if(quiet){reveal.classList.add('is-visible');contact.classList.add('is-visible');chapterAnimation?.cancel();}
-    const running=!quiet&&(flowsRunning||(ai&&codeProgress<1)||(humanStart!==null&&hp<1)||(photoStart!==null&&!photoDone)||(jokeStart!==null&&jp<1));
-    if(running)schedule();
   }
-  function schedule(){if(!pending){pending=true;requestAnimationFrame(render);}}
-  function resize(){needsMeasure=true;schedule();}
-  document.querySelectorAll('[data-language]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.language)));
-  if('IntersectionObserver' in window){
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('is-visible');}),{threshold:.12});
-    observer.observe(reveal);observer.observe(contact);
-  }else{reveal.classList.add('is-visible');contact.classList.add('is-visible');}
-  // A non-modal disclosure: normal tab order, Escape and outside-focus dismissal.
-  const header=$('.header'), menu=$('.menu-toggle'), panel=$('#header-panel');
-  const mobileNav=matchMedia('(max-width: 900px)');
-  const navLinks=[...document.querySelectorAll('.site-nav a')];
-  let activeSection='top';
-  function setMenu(open,restoreFocus=false){
-    const expanded=mobileNav.matches&&open;
-    menu.setAttribute('aria-expanded',String(expanded));
-    panel.hidden=mobileNav.matches&&!expanded;
-    if(restoreFocus)menu.focus({preventScroll:true});
+  addEventListener('scroll', onScroll, {passive: true});
+
+  /* ---------- Pointer parallax (starfield drifts against the pointer) ---------- */
+  let pointerQueued = false;
+  addEventListener('pointermove', event => {
+    if (reduced.matches || pointerQueued) return;
+    pointerQueued = true;
+    requestAnimationFrame(() => {
+      pointerQueued = false;
+      root.style.setProperty('--px', ((event.clientX / innerWidth) * 2 - 1).toFixed(3));
+      root.style.setProperty('--py', ((event.clientY / innerHeight) * 2 - 1).toFixed(3));
+    });
+  }, {passive: true});
+
+  /* ---------- Scroll-triggered reveals ---------- */
+  const revealEls = [...document.querySelectorAll('[data-reveal]')];
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold: .12, rootMargin: '0px 0px -8% 0px'});
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
   }
-  function updateNavigation(y){
-    // The same reading line is used in both directions, with a small hysteresis.
-    const readingLine=y+geometry.headerHeight+Math.min(96,(geometry.viewport-geometry.headerHeight)*.18);
-    const oldIndex=geometry.sections.findIndex(s=>s.id===activeSection);
-    let index=0;
-    geometry.sections.forEach((s,i)=>{if(s.top<=readingLine)index=i;});
-    if(index<oldIndex&&readingLine>geometry.sections[oldIndex].top-16)return;
-    const id=geometry.sections[index].id;
-    if(id===activeSection)return;
-    activeSection=id;
-    navLinks.forEach(link=>{if(link.dataset.section===id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});
+
+  /* ---------- Journey sequence: layers light up one by one ---------- */
+  const journey = $('.journey'), stage = $('.journey-stage');
+  const chapter = $('#chapter-name'), written = $('#written-code');
+  const items = [...document.querySelectorAll('.timeline li')];
+  const layers = [...document.querySelectorAll('.layer-stack i')];
+  const names = ['SYSTEMS', 'CODE', 'WEB', 'DATA', 'AUTOMATION', 'AI'];
+  const fullCode = "create({ foundations, curiosity,\n  collaborator: 'AI' });";
+  const LAYER_STEP = 650, CODE_TIME = 2400;
+  let aiActive = false, journeyDone = false, chapterIndex = 0, chapterAnimation;
+  function setLayer(index) {
+    items.forEach((el, i) => {
+      el.classList.toggle('reached', i <= index);
+      el.classList.toggle('current', i === index);
+    });
+    layers.forEach((el, i) => el.classList.toggle('on', i <= index));
+    stage.style.setProperty('--progress', (index / 5).toFixed(3));
+    if (chapterIndex !== index) {
+      chapterIndex = index;
+      chapter.textContent = names[index];
+      if (chapterAnimation) chapterAnimation.cancel();
+      if (!reduced.matches) {
+        chapterAnimation = chapter.animate(
+          [{opacity: 0, transform: 'translateY(7px)'}, {opacity: 1, transform: 'none'}],
+          {duration: 520, easing: 'ease-out'});
+      }
+    }
   }
-  menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));
-  header.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){setMenu(false,true);}});
-  header.addEventListener('focusout',event=>{if(event.relatedTarget&&!header.contains(event.relatedTarget))setMenu(false);});
-  document.addEventListener('click',event=>{if(!header.contains(event.target))setMenu(false);});
-  [...navLinks,$('.identity')].forEach(link=>link.addEventListener('click',()=>{
+  function typeCode(start) {
+    const tick = now => {
+      const p = clamp((now - start) / CODE_TIME);
+      written.textContent = fullCode.slice(0, Math.floor(p * fullCode.length));
+      if (p < 1) requestAnimationFrame(tick);
+      else {
+        stage.classList.remove('ai-arrival');
+        stage.classList.add('story-complete');
+        journeyDone = true;
+      }
+    };
+    requestAnimationFrame(tick);
+  }
+  function runJourney() {
+    if (journeyDone) return;
+    if (reduced.matches) {
+      setLayer(5);
+      aiActive = true;
+      stage.classList.add('ai-active', 'story-complete');
+      written.textContent = fullCode;
+      $('.code-status').textContent = copy[language].screenActive;
+      journeyDone = true;
+      return;
+    }
+    let index = 0;
+    setLayer(0);
+    const step = () => {
+      index++;
+      if (index > 5) return;
+      setLayer(index);
+      if (index === 5) {
+        aiActive = true;
+        stage.classList.add('ai-active', 'ai-arrival');
+        $('.code-status').textContent = copy[language].screenActive;
+        typeCode(performance.now() + 250);
+      } else {
+        setTimeout(step, LAYER_STEP);
+      }
+    };
+    setTimeout(step, LAYER_STEP);
+  }
+  if ('IntersectionObserver' in window) {
+    const journeyObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { runJourney(); journeyObserver.disconnect(); }
+      });
+    }, {threshold: .25});
+    journeyObserver.observe(journey);
+  } else {
+    runJourney();
+  }
+
+  /* ---------- Experience chapter flows ---------- */
+  const chapters = [...document.querySelectorAll('.experience-chapter')];
+  function animateFlow(el) {
+    if (reduced.matches) { el.style.setProperty('--flow', '1'); return; }
+    const start = performance.now();
+    const tick = now => {
+      const p = clamp((now - start) / 2200);
+      el.style.setProperty('--flow', p.toFixed(4));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window) {
+    const flowObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateFlow(entry.target);
+          flowObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold: .3});
+    chapters.forEach(el => {
+      el.style.setProperty('--flow', '0');
+      flowObserver.observe(el);
+    });
+  }
+
+  /* ---------- About typing sequence ---------- */
+  const about = $('.about');
+  const human = $('#human-typed'), joke = $('#joke-typed');
+  let aboutDone = false, lastJoke = '';
+  function colorGoogle(text) {
+    if (text === lastJoke) return;
+    lastJoke = text;
+    joke.replaceChildren();
+    const start = text.indexOf('Google');
+    if (start < 0) { joke.textContent = text; return; }
+    joke.append(document.createTextNode(text.slice(0, start)));
+    const colors = ['#4285f4', '#ea4335', '#fbbc05', '#4285f4', '#34a853', '#ea4335'];
+    [...'Google'].forEach((letter, i) => {
+      const span = document.createElement('span');
+      span.textContent = letter;
+      span.style.color = colors[i];
+      joke.append(span);
+    });
+    joke.append(document.createTextNode(text.slice(start + 6)));
+  }
+  function typeText(el, getText, duration, done) {
+    const start = performance.now();
+    const tick = now => {
+      const text = getText();
+      const p = clamp((now - start) / duration);
+      const slice = text.slice(0, Math.floor(p * text.length));
+      if (el === joke) colorGoogle(slice);
+      else el.textContent = slice;
+      if (p < 1) requestAnimationFrame(tick);
+      else if (done) done();
+    };
+    requestAnimationFrame(tick);
+  }
+  function runAbout() {
+    if (aboutDone) return;
+    if (reduced.matches) {
+      human.textContent = copy[language].stillHuman;
+      colorGoogle(copy[language].joke);
+      aboutDone = true;
+      return;
+    }
+    typeText(human, () => copy[language].stillHuman, 1000, () => {
+      typeText(joke, () => copy[language].joke, 1350, () => { aboutDone = true; });
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    const aboutObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { runAbout(); aboutObserver.disconnect(); }
+      });
+    }, {threshold: .25});
+    aboutObserver.observe(about);
+  } else {
+    runAbout();
+  }
+
+  /* ---------- Navigation: active section + mobile menu ---------- */
+  const header = $('.header'), menu = $('.menu-toggle'), panel = $('#header-panel');
+  const mobileNav = matchMedia('(max-width: 900px)');
+  const navLinks = [...document.querySelectorAll('.site-nav a')];
+  let activeSection = 'top', sectionTops = [], headerHeight = 64;
+  function measureSections() {
+    headerHeight = header.getBoundingClientRect().height;
+    sectionTops = navLinks.map(link => ({
+      id: link.dataset.section,
+      top: document.getElementById(link.dataset.section).getBoundingClientRect().top + scrollY
+    }));
+  }
+  function updateNavigation() {
+    if (!sectionTops.length) measureSections();
+    const readingLine = scrollY + headerHeight + Math.min(96, (innerHeight - headerHeight) * .18);
+    const oldIndex = sectionTops.findIndex(s => s.id === activeSection);
+    let index = 0;
+    sectionTops.forEach((s, i) => { if (s.top <= readingLine) index = i; });
+    if (index < oldIndex && readingLine > sectionTops[oldIndex].top - 16) return;
+    const id = sectionTops[index].id;
+    if (id === activeSection) return;
+    activeSection = id;
+    navLinks.forEach(link => {
+      if (link.dataset.section === id) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  function setMenu(open, restoreFocus) {
+    const expanded = mobileNav.matches && open;
+    menu.setAttribute('aria-expanded', String(expanded));
+    panel.hidden = mobileNav.matches && !expanded;
+    if (restoreFocus) menu.focus({preventScroll: true});
+  }
+  menu.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
+  header.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') setMenu(false, true);
+  });
+  header.addEventListener('focusout', event => {
+    if (event.relatedTarget && !header.contains(event.relatedTarget)) setMenu(false);
+  });
+  document.addEventListener('click', event => { if (!header.contains(event.target)) setMenu(false); });
+  [...navLinks, $('.identity')].forEach(link => link.addEventListener('click', () => {
     setMenu(false);
-    const target=document.getElementById(link.getAttribute('href').slice(1));
-    requestAnimationFrame(()=>{target.focus({preventScroll:true});schedule();});
+    const target = document.getElementById(link.getAttribute('href').slice(1));
+    requestAnimationFrame(() => { target.focus({preventScroll: true}); onScroll(); });
   }));
-  mobileNav.addEventListener('change',()=>{const focusInside=panel.contains(document.activeElement);setMenu(false,mobileNav.matches&&focusInside);resize();});
-  root.classList.add('nav-ready');
+  mobileNav.addEventListener('change', () => {
+    const focusInside = panel.contains(document.activeElement);
+    setMenu(false, mobileNav.matches && focusInside);
+    measureSections();
+  });
+
+  /* ---------- Init ---------- */
+  document.querySelectorAll('[data-language]').forEach(el => el.addEventListener('click', () => setLanguage(el.dataset.language)));
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopStars();
+    else startStars();
+  });
+  reduced.addEventListener('change', () => {
+    if (reduced.matches) { stopStars(); drawStars(performance.now()); }
+    else startStars();
+  });
+  let resizeTimer;
+  addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      sizeStars();
+      drawStars(performance.now());
+      measureSections();
+    }, 150);
+  }, {passive: true});
+  addEventListener('pageshow', () => { measureSections(); onScroll(); });
+
+  root.classList.add('nav-ready', 'animated');
   setMenu(false);
-  written.textContent='';human.textContent='';joke.textContent='';root.classList.add('animated');
-  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',resize,{passive:true});addEventListener('pageshow',resize);
-  reduced.addEventListener('change',resize);
-  schedule();
+  // Typing targets start empty; the HTML holds the full text for no-JS.
+  written.textContent = '';
+  human.textContent = '';
+  joke.textContent = '';
+  lastJoke = '';
+  measureSections();
+  sizeStars();
+  drawStars(performance.now());
+  startStars();
+  onScroll();
 })();
